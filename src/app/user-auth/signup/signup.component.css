@@ -1,0 +1,25 @@
+.signup-box{
+    background-color: blueviolet;
+    padding:50px;
+    border-radius: 10px;
+    align-items: center;
+    color: white;
+    justify-content: center;
+}
+.signup{
+    margin:20px;
+}
+.signup-box h3{
+    text-align: center;
+}
+.app-signup{
+    padding:30px;
+}
+.signup-img{
+    text-align: center;
+    justify-content: center;
+
+    display: inline-block;
+    height: 100%;
+    width: 130%;
+}

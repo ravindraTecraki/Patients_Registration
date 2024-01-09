@@ -1,0 +1,36 @@
+.login-page {
+  height: 100vh;
+  width: 100vw;
+
+}
+.login-box {
+  width: 300px;
+  height: 300px;
+
+  margin: 30px;
+  padding: 20px;
+  color: white;
+}
+.user-login{
+    margin-top: 20px;
+}
+.login {
+  height: 400;
+  width: 400px;
+  background-color: blueviolet;
+  padding: 20px;
+  border-radius: 10px;
+  align-items: center;
+  margin: auto;
+
+  color: white;
+ 
+}
+.login h3 {
+  text-align: center;
+  font-size: 30px;
+}
+
+#emailHelp {
+  color: white;
+}
