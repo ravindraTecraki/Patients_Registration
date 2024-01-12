@@ -5,6 +5,8 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { AuthService } from './../../service/auth.service';
+
 
 
 
@@ -20,7 +22,7 @@ export class RegistrationComponent {
 
   protected patients_registration!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private auth:AuthService) { }
 
   ngOnInit() {
     this.patients_registration = this.formBuilder.group({
@@ -105,13 +107,17 @@ export class RegistrationComponent {
   submit() {
     this.submitted = true;
 
-    if (this.patients_registration.invalid) {
-      // If the form is invalid, do not proceed
-      alert('Please fill in all required fields.');
-      return;
+    //Check if the form is valid before submitting
+    if (this.patients_registration.valid) {
+      const data = this.patients_registration.value;
+      this.auth.patientsRegistration(data).subscribe(
+        (response) => {
+          alert('User registration successful');
+        },
+        (err) => {
+          alert(err);
+        }
+      );
     }
-
-    // If the form is valid, log the form data to the console
-    console.log('Form data:', this.patients_registration.value);
   }
 }

@@ -7,20 +7,17 @@ import {
   FormControl,
 } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
-  
+  selector: 'app-p-login',
+  templateUrl: './p-login.component.html',
+  styleUrl: './p-login.component.css'
 })
-export class LoginComponent{
-
-  protected login!: FormGroup;
+export class PLoginComponent {
+  protected plogin!: FormGroup;
   submitted = false;
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
-    this.login = this.formBuilder.group({
+    this.plogin = this.formBuilder.group({
       
       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/)]]
@@ -30,14 +27,14 @@ export class LoginComponent{
   }
 
   get Email() : FormControl{
-   return this.login.get("email") as FormControl;
+   return this.plogin.get("email") as FormControl;
   }
   get Password() : FormControl{
-    return this.login.get("password") as FormControl;
+    return this.plogin.get("password") as FormControl;
   }
 
-  userLogin(){
+  pLogin(){
    this.submitted = true;
-   console.log(this.login.value);
+   console.log(this.plogin.value);
   }
 }
